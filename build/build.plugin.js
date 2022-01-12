@@ -1,9 +1,9 @@
 const path = require('path')
 const del = require('del')
 
-const {
-  error
-} = require('@vue/cli-shared-utils')
+// const {
+//   error
+// } = require('@vue/cli-shared-utils')
 
 const Service = require('@vue/cli-service')
 
@@ -40,8 +40,9 @@ service.webpackRawConfigFns.push(function () {
     resolve: {
       alias: {
         'uni-platform/service/api.js': extendsApiPath,
-        'uni-sub-platform': path.resolve(pluginDir, 'src'),
+        'uni-sub-platform': path.resolve(__dirname, '../src/platforms/h5'),
         'uni-platform-api': path.resolve(__dirname, '../src/platforms/h5/service/api'),
+        'uni-platform': path.resolve(__dirname, '../src/platforms/h5'),
         'uni-sub-platform-api': path.resolve(pluginDir, 'src/service/api')
       }
     },
@@ -79,7 +80,8 @@ service.run('build', {
   dest: path.join(pluginDir, 'dist'),
   clean: true,
   mode: process.env.NODE_ENV
-}).then(function () {}).catch(err => {
-  error(err)
-  process.exit(1)
-})
+}).then(function () {})
+// .catch(err => {
+//   // error(err)
+//   // process.exit(1)
+// })
