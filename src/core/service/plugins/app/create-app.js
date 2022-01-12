@@ -1,8 +1,8 @@
-import {
-  initAppLocale
-} from 'uni-helpers/i18n'
+// import {
+//   initAppLocale
+// } from 'uni-helpers/i18n'
 
-import initRouterGuard from './router-guard'
+// import initRouterGuard from './router-guard'
 
 let appVm = false
 
@@ -68,11 +68,11 @@ export function getCurrentPages (isAll = false, ignoreError = false) {
   return pages
 }
 
-export default function createApp (Vue, vm, routes) {
+export default function createApp (Vue, vm) {
   appVm = vm
   appVm.$vm = vm
   appVm.globalData = appVm.$options.globalData || {}
-  initAppLocale(Vue, appVm)
+  // initAppLocale(Vue, appVm)
   // initEvents(appVm)
-  initRouterGuard(appVm, routes)
+  // initRouterGuard(appVm, routes)
 }
