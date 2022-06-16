@@ -6379,7 +6379,7 @@ function setPageMeta(args) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(UniViewJSBridge, global, UniServiceJSBridge) {/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("8bbf");
+/* WEBPACK VAR INJECTION */(function(console, global, UniViewJSBridge, UniServiceJSBridge) {/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("8bbf");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var uni_core_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("442e");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -6407,6 +6407,7 @@ var UniApp = /*#__PURE__*/function () {
   _createClass(UniApp, [{
     key: "_init",
     value: function _init() {
+      console.log('%c [ global ]-17', 'font-size:13px; background:pink; color:#bf2c9f;', global);
       global.UniViewJSBridge = {
         subscribe: UniViewJSBridge.subscribe,
         publishHandler: UniViewJSBridge.publishHandler,
@@ -6433,8 +6434,8 @@ var UniApp = /*#__PURE__*/function () {
           configurable: false
         });
       });
-      global.uni = uni;
-      global.wx = global.uni;
+      global.uni = uni; // global.wx = global.uni
+
       global.getApp = getApp;
       global.getCurrentPages = getCurrentPages;
       vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(__webpack_require__("4ca9").default, {
@@ -6456,7 +6457,7 @@ var UniApp = /*#__PURE__*/function () {
 
 global.UniApp = UniApp;
 global.__uniConfig && new UniApp();
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__("501c"), __webpack_require__("c8ba"), __webpack_require__("0dd1")))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__("3ad9")["default"], __webpack_require__("c8ba"), __webpack_require__("501c"), __webpack_require__("0dd1")))
 
 /***/ }),
 
@@ -26957,20 +26958,20 @@ function createAppMixin(Vue) {
       //   })
       //   // TODO 跳转至缺省404页面
       // }
-    } // beforeMount: function appBeforeMount () {
-    //   // TODO 平台代码
-    //   this.$el = document.getElementById('app')
-    // },
-    // mounted: function appMounted () {
-    //   // 稍微靠后点，让 App 有机会在 mounted 事件前注册一些全局事件监听，如 UI 显示(showModal)
-    //   const args = {
-    //     path: '/xx', // this.$route.meta && this.$route.meta.pagePath,
-    //     query: '', // this.$route.query,
-    //     scene: 1001
+    } //   beforeMount: function appBeforeMount () {
+    //     // TODO 平台代码
+    //     this.$el = document.getElementById('app')
+    //   },
+    //   mounted: function appMounted () {
+    //     // 稍微靠后点，让 App 有机会在 mounted 事件前注册一些全局事件监听，如 UI 显示(showModal)
+    //     const args = {
+    //       path: this.$route.meta && this.$route.meta.pagePath,
+    //       query: this.$route.query,
+    //       scene: 1001
+    //     }
+    //     callAppHook(this, 'onLaunch', args)
+    //     callAppHook(this, 'onShow', args)
     //   }
-    //   callAppHook(this, 'onLaunch', args)
-    //   callAppHook(this, 'onShow', args)
-    // }
 
   };
 }
