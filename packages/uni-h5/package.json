@@ -1,6 +1,6 @@
 {
   "name": "@tencent/uni-h5-fork",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "uni-app h5",
   "main": "dist/index.umd.min.js",
   "repository": {
